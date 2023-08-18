@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+    background-color: black;
+    color: white;
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    background-color: black;
+  }
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  input {
+    margin-bottom: 10px;
+    padding: 5px;
+    color: black;
+  }
+  #enterButton {
+    padding: 10px;
+    background-color: #FFFFFF;
+    color: blacl;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+  <div class="form-container">
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+    <label for="age">Age:</label>
+    <input type="text" id="age" placeholder="Enter your age">
+    <button id="enterButton">Enter</button>
+  </div>
+  <script>
+    document.getElementById("enterButton").addEventListener("click", function() {
+      document.querySelector(".form-container").style.display = "none"; // Hide the form
+      
+      const audio = new Audio("hackerfoda.mp3"); // Replace with the actual path to your audio file
+      
+      audio.loop = true; 
+      audio.play("hackerfoda.mp3");
+      
+      showHackingScreen(); // Show the hacking screen
+    });
+
+    function showHackingScreen() {
+      const hackingScreen = document.createElement("div");
+      hackingScreen.classList.add("hacking-screen");
+      document.body.appendChild(hackingScreen);
+
+      function createBlinkingText(textContent, color, animationDelay) {
+        const text = document.createElement("p");
+        text.innerText = textContent;
+        text.classList.add("blinking-text");
+        text.style.color = color;
+        text.style.animationDelay = animationDelay + "s";
+        text.style.left = Math.random() * 90 + "vw";
+        text.style.top = Math.random() * 90 + "vh";
+        hackingScreen.appendChild(text);
+      }
+
+      function createShakingText(textContent, color, animationDelay) {
+        const text = document.createElement("p");
+        text.innerText = textContent;
+        text.classList.add("shaking-text");
+        text.style.color = color;
+        text.style.animationDelay = animationDelay + "s";
+        text.style.left = Math.random() * 90 + "vw";
+        text.style.top = Math.random() * 90 + "vh";
+        hackingScreen.appendChild(text);
+      }
+
+      setInterval(function() {
+        createBlinkingText("01010101101100010010011110hacking your device . IP SERVICE ... YOUR 01010001110 ", "green", Math.random());
+        createShakingText("DELETING THE SYSTEM...", "red", Math.random());
+      }, 50); // Add a new blinking text every 50 milliseconds
+
+      document.body.style.animation = "shakeScreen 0.5s infinite";
+      document.querySelector(".hacking-screen").style.backgroundColor = "black"; // Set background color to black
+    }
+  </script>
+  <style>
+    .hacking-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white; /* Alterado para branco */
+      z-index: 9999;
+    }
+
+    .blinking-text {
+      position: absolute;
+      font-family: 'Courier New', monospace;
+      font-size: 24px;
+      text-align: center;
+      animation: blink 0.2s infinite, changePosition 1s linear infinite;
+    }
+    .shaking-text {
+      position: absolute;
+      font-family: 'Courier New', monospace;
+      font-size: 24px;
+      text-align: center;
+      animation: shake 0.1s infinite alternate, changePosition 1s linear infinite;
+    }
+    @keyframes blink {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+    @keyframes shake {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      25% {
+        transform: translateX(5px);
+      }
+      75% {
+        transform: translateX(-5px);
+      }
+    }
+    @keyframes changePosition {
+      0% {
+        left: 0;
+        top: 0;
+      }
+      25% {
+        left: 90vw;
+        top: 0;
+      }
+      50% {
+        left: 90vw;
+        top: 90vh;
+      }
+      75% {
+        left: 0;
+        top: 90vh;
+      }
+      100% {
+        left: 0;
+        top: 0;
+      }
+    }
+    @keyframes shakeScreen {
+      0%, 100% {
+        transform: translate(0, 0);
+      }
+      10%, 30%, 50%, 70%, 90% {
+        transform: translate(-5px, 5px);
+      }
+      20%, 40%, 60%, 80% {
+        transform: translate(5px, -5px);
+      }
+    }
+  </style>
+</body>
+</html>
