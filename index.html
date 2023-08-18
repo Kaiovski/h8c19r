@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    background-color: white;
+  }
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  input {
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  #enterButton {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+  <div class="form-container">
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+    <label for="age">Age:</label>
+    <input type="text" id="age" placeholder="Enter your age">
+    <button id="enterButton">Enter</button>
+  </div>
+  <script>
+    document.getElementById("enterButton").addEventListener("click", function() {
+      document.querySelector(".form-container").style.display = "none"; // Hide the form
+      showHackingScreen(); // Show the hacking screen
+    });
+
+    function showHackingScreen() {
+      const hackingScreen = document.createElement("div");
+      hackingScreen.classList.add("hacking-screen");
+      document.body.appendChild(hackingScreen);
+
+      function createBlinkingText() {
+        const text = document.createElement("p");
+        text.innerText = "01010101101100010010011110hacking your device . IP SERVICE ... YOUR 01010001110 ";
+        text.classList.add("blinking-text");
+        text.style.left = Math.random() * 90 + "vw";
+        text.style.top = Math.random() * 90 + "vh"; // Random vertical position
+        hackingScreen.appendChild(text);
+      }
+
+      setInterval(createBlinkingText, 50); // Add a new blinking text every 50 milliseconds
+    }
+  </script>
+  <style>
+    .hacking-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 9999;
+    }
+
+    .blinking-text {
+      position: absolute;
+      color: green;
+      font-family: 'Courier New', monospace;
+      font-size: 24px;
+      text-align: center;
+      animation: blink 0.2s infinite, changePosition 1s linear infinite;
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes changePosition {
+      0% {
+        left: 0;
+        top: 0;
+      }
+      25% {
+        left: 90vw;
+        top: 0;
+      }
+      50% {
+        left: 90vw;
+        top: 90vh;
+      }
+      75% {
+        left: 0;
+        top: 90vh;
+      }
+      100% {
+        left: 0;
+        top: 0;
+      }
+    }
+  </style>
+</body>
+</html>
